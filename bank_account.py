@@ -3,6 +3,10 @@ class BankAccount:
     def __init__(self):
         self.balance = 0
         self.interest = 1.02
+    #dunder method Dunder is short-hand for double underscore.
+    #https://git.generalassemb.ly/prudential-0921/python-oop/blob/master/readme.md#what-are-dunder-methods-magic-methods
+    def __str__(self):
+        return f"Current Balance: $ {self.balance}"
 
     def deposit(self, amount):
         self.balance += amount
@@ -50,13 +54,18 @@ class OverdraftAccount(BankAccount):
 
 basic_account = BankAccount()
 basic_account.deposit(600)
+print(f"Basic account has ${basic_account.balance}")
 basic_account.withdraw(17)
+print(f"Basic account has ${basic_account.balance}")
 basic_account.accumulate_interest()
+print(f"Basic account has ${basic_account.balance}")
 childs_account = ChildrensAccount()
 childs_account.deposit(34)
+print(f"Child's account has ${childs_account.balance}")
 childs_account.withdraw(17)
 print(f"Child's account has ${childs_account.balance}")
 childs_account.accumulate_interest()
+print(f"Child's account has ${childs_account.balance}")
 overdraft_account = OverdraftAccount()
 overdraft_account.deposit(12)
 overdraft_account.withdraw(17)
